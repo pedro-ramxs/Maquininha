@@ -6,7 +6,7 @@ const KEY = 'jogadores';
 @Injectable({
     providedIn: 'root',
 })
-export class JogadoresServiceService {
+export class JogadoresService {
     constructor() {}
 
     public getJogadores(): Jogador[] | null {

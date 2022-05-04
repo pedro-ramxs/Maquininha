@@ -1,0 +1,22 @@
+<form class="quantidade">
+    <input
+        type="number"
+        min="0"
+        [value]="numJogadores"
+        class="quantidade__inp"
+    />
+    <button
+        type="button"
+        class="btn btn--verde quantidade__inc"
+        (click)="inc()"
+    >
+        +
+    </button>
+    <button
+        type="button"
+        class="btn btn--vermelho quantidade__dec"
+        (click)="dec()"
+    >
+        -
+    </button>
+</form>

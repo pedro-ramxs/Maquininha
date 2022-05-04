@@ -1,0 +1,20 @@
+<div class="configuracoes">
+    <h1 class="configuracoes__titulo">Configurações</h1>
+    <ul class="configuracoes__lista lista">
+        <li *ngFor="let jogador of jogadores" class="lista__item">
+            <input
+                type="text"
+                [id]="'input' + jogador.id"
+                [value]="jogador.nome"
+                class="lista__inp"
+            />
+            <p>
+                <span class="lista__sifrao">$</span
+                >{{ converteSaldo(jogador.saldo) }}
+            </p>
+        </li>
+    </ul>
+    <button class="btn btn--verde" (click)="atualizaJogadores()">
+        Pronto!
+    </button>
+</div>

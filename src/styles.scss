@@ -1,1 +1,51 @@
+$cinza: #e2e2e2;
+$vermelho: #ff1616;
+$verde: #7ed957;
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Londrina Solid", cursive;
+    font-size: 1.25rem;
+}
+
+body {
+    padding: 10px;
+}
+
+.btn {
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    background-color: $cinza;
+    &:hover {
+        background-color: adjust-color($cinza, $lightness: -10%);
+    }
+    &--vermelho {
+        background-color: $vermelho;
+        color: #fff;
+
+        &:hover {
+            background-color: adjust-color(
+                $vermelho,
+                $lightness: 10%,
+                $saturation: 5%
+            );
+        }
+    }
+    &--verde {
+        background-color: $verde;
+        color: #fff;
+        &:hover {
+            background-color: adjust-color(
+                $verde,
+                $lightness: 10%,
+                $saturation: 5%
+            );
+        }
+    }
+}

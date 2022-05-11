@@ -2,6 +2,7 @@ import { Jogador } from './jogador';
 import { Injectable } from '@angular/core';
 
 const KEY = 'jogadores';
+let jogadores: Jogador[] = [];
 
 @Injectable({
     providedIn: 'root',
@@ -9,41 +10,49 @@ const KEY = 'jogadores';
 export class JogadoresService {
     constructor() {}
 
-    public getJogadores(): Jogador[] | null {
-        const jogadores = localStorage.getItem(KEY);
-        return jogadores ? (JSON.parse(jogadores) as Jogador[]) : null;
+    public getJogadores(): Jogador[] {
+        return jogadores;
+    }
+
+    public getJogadorById(id: number): Jogador {
+        return jogadores.filter((jogador) => jogador.id == id)[0];
+    }
+
+    public getJogadoresLocalStorage(): Jogador[] | null {
+        if (window.localStorage) {
+            const jogadoresLS = localStorage.getItem(KEY);
+            return jogadoresLS ? JSON.parse(jogadoresLS) : null;
+        }
+        return null;
     }
 
     public setJogador(jogador: Jogador): void {
-        const jogadores = this.getJogadores();
-        if (!jogadores) {
-            localStorage.setItem(KEY, JSON.stringify([jogador]));
-            return;
-        }
         const novoArray = jogadores.filter(
             (jogadorAtual) => jogadorAtual.id !== jogador.id
         );
-        localStorage.setItem(
-            KEY,
-            JSON.stringify(
-                [...novoArray, jogador].sort((j1, j2) => {
-                    if (j1.nome > j2.nome) {
-                        return 1;
-                    }
-                    if (j1.nome < j2.nome) {
-                        return -1;
-                    }
-                    return 0;
-                })
-            )
-        );
+        jogadores = [...novoArray, jogador];
+        if (window.localStorage) {
+            localStorage.setItem(KEY, JSON.stringify(jogadores));
+        }
     }
 
     public limpar(): void {
-        localStorage.clear();
+        jogadores = [];
+        if (window.localStorage) {
+            localStorage.clear();
+        }
     }
 
-    public converteSaldo(saldo: number): string {
+    public converteSaldoString(saldo: number): string {
         return saldo > 1000000 ? `${saldo / 1000000}M` : `${saldo / 1000}K`;
+    }
+
+    public converteSaldoNumber(saldo: string): number {
+        if (saldo.endsWith('K')) {
+            const valor = parseFloat(saldo.split('K')[0]);
+            return valor * 1000;
+        }
+        const valor = parseFloat(saldo.split('M')[0]);
+        return valor * 1000000;
     }
 }

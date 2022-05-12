@@ -19,7 +19,7 @@ export class JogadoresService {
         return jogadores.filter((jogador) => jogador.id == id)[0];
     }
 
-    public getJogadoresLocalStorage(): Jogador[] | null {
+    private getJogadoresLocalStorage(): Jogador[] | null {
         if (window.localStorage) {
             const jogadoresLS = localStorage.getItem(KEY);
             return jogadoresLS ? JSON.parse(jogadoresLS) : null;

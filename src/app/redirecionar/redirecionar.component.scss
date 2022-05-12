@@ -1,0 +1,20 @@
+.redirecionar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    min-height: 50vh;
+    &__titulo {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+    }
+    &__subtitulo {
+        margin-bottom: 10px;
+    }
+    &__botoes {
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 50px;
+    }
+}

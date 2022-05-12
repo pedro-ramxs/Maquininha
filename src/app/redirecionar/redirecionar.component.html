@@ -1,0 +1,30 @@
+<div class="redirecionar">
+    <h1 class="redirecionar__titulo">Olá, seja bem vindo!</h1>
+    <div *ngIf="jogadores.length > 0; else semDados">
+        <h2 class="redirecionar__subtitulo">
+            Você tem um jogo salvo. Deseja continuá-lo, ou começar um novo?
+        </h2>
+        <ul class="lista">
+            <li *ngFor="let jogador of jogadores" class="lista__item">
+                <p class="lista__inp">{{ jogador.nome }}</p>
+                <p>
+                    <span class="lista__sifrao">$</span>
+                    {{ converteSaldo(jogador.saldo) }}
+                </p>
+            </li>
+        </ul>
+        <div class="redirecionar__botoes">
+            <button class="btn btn--verde" (click)="recomecar()">
+                Novo Jogo
+            </button>
+            <a [routerLink]="['/maquininha']" class="btn">Continuar</a>
+        </div>
+    </div>
+</div>
+<ng-template #semDados>
+    <div>
+        <a [routerLink]="['/inicio']" class="btn btn--verde"
+            >Começar Novo Jogo</a
+        >
+    </div>
+</ng-template>

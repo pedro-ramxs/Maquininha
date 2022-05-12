@@ -1,0 +1,28 @@
+<div class="maquininha">
+    <div class="maquininha__botoes">
+        <button class="btn" (click)="modalRecomecar.mostrar = true">
+            recomeçar
+        </button>
+        <a [routerLink]="['/configuracoes']"
+            ><fa-icon [icon]="icons.config"></fa-icon
+        ></a>
+    </div>
+    <div class="maquininha__maquina">
+        <app-select-jogadores
+            [(jogadorAtual)]="jogadorSelecionado"
+        ></app-select-jogadores>
+        <app-maquina
+            [icons]="icons"
+            (novaOperacao)="handleOperacao($event)"
+        ></app-maquina>
+    </div>
+</div>
+<app-modal [mostrar]="modalRecomecar.mostrar" #modalRecomecar>
+    <p class="modal-texto">Tem certeza que deseja recomeçar?</p>
+    <div class="modal-botao modal-botao-container">
+        <button class="btn btn--vermelho" (click)="recomecar()">Sim</button>
+        <button class="btn" (click)="modalRecomecar.mostrar = false">
+            Cancelar
+        </button>
+    </div>
+</app-modal>

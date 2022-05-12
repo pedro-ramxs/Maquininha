@@ -1,0 +1,12 @@
+.rodape {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    &__link {
+        text-decoration: none;
+        color: black;
+        &:hover {
+            color: #009978;
+        }
+    }
+}

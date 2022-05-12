@@ -1,0 +1,29 @@
+.maquininha {
+    min-width: 275px;
+    &__botoes {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10vh;
+    }
+    &__maquina {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+.modal {
+    &-texto {
+        padding: 16px 0;
+    }
+    &-botao {
+        margin: 16px 0;
+        &-container {
+            margin: 16px;
+            display: grid;
+            grid-template-columns: 45% 45%;
+            column-gap: 10%;
+            padding-bottom: 16px;
+        }
+    }
+}

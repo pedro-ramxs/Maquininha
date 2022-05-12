@@ -1,6 +1,7 @@
 $cinza: #e2e2e2;
 $vermelho: #ff1616;
 $verde: #7ed957;
+$azul: #5e17eb;
 
 * {
     margin: 0;
@@ -13,6 +14,11 @@ $verde: #7ed957;
 
 body {
     padding: 10px;
+    background-color: #fff;
+}
+
+a {
+    color: inherit;
 }
 
 .btn {
@@ -45,6 +51,17 @@ body {
                 $verde,
                 $lightness: 10%,
                 $saturation: 5%
+            );
+        }
+    }
+    &--azul {
+        background-color: $azul;
+        color: #fff;
+        &:hover {
+            background-color: adjust-color(
+                $azul,
+                $lightness: 10%,
+                $saturation: 10%
             );
         }
     }

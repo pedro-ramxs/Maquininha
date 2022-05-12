@@ -11,7 +11,8 @@ export class JogadoresService {
     constructor() {}
 
     public getJogadores(): Jogador[] {
-        return jogadores;
+        const jogadoresLS = this.getJogadoresLocalStorage();
+        return jogadoresLS ? jogadoresLS : jogadores;
     }
 
     public getJogadorById(id: number): Jogador {

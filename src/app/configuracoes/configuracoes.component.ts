@@ -32,7 +32,7 @@ export class ConfiguracoesComponent implements OnInit, AfterViewInit {
     }
 
     public converteSaldo(saldo: number): string {
-        return this.jogadoresService.converteSaldo(saldo);
+        return this.jogadoresService.converteSaldoString(saldo);
     }
 
     public atualizaJogadores(): void {

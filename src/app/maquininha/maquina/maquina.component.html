@@ -1,0 +1,48 @@
+<div class="maquina">
+    <p class="maquina__visor">{{ valor }}</p>
+    <div class="maquina__btn-unidades">
+        <button class="btn btn--vermelho" (click)="digita('M')">M</button>
+        <button class="btn btn--verde" (click)="criaNovaOperacao(11)">
+            <fa-icon [icon]="icons.arrow"></fa-icon>
+        </button>
+        <button class="btn btn--azul" (click)="digita('K')">K</button>
+    </div>
+
+    <!-- prettier-ignore -->
+    <div class="maquina__teclado">
+        <button class="btn" (click)="digita('1')">1</button>
+        <button class="btn" (click)="digita('2')">2</button>
+        <button class="btn" (click)="digita('3')">3</button>
+        <button class="btn" (click)="digita('4')">4</button>
+        <button class="btn" (click)="digita('5')">5</button>
+        <button class="btn" (click)="digita('6')">6</button>
+        <button class="btn" (click)="digita('7')">7</button>
+        <button class="btn" (click)="digita('8')">8</button>
+        <button class="btn" (click)="digita('9')">9</button>
+        <button class="btn" (click)="limpa()">C</button>
+        <button class="btn" (click)="digita('0')">0</button>
+        <button class="btn" (click)="digita('.')">.</button>
+    </div>
+    <div class="maquina__btn-acoes">
+        <button class="btn" (click)="criaNovaOperacao(1)">
+            +<fa-icon [icon]="icons.user"></fa-icon>
+        </button>
+        <button class="btn" (click)="handleTroca()">
+            <fa-icon [icon]="icons.user"></fa-icon>
+            <fa-icon [icon]="icons.user"></fa-icon>
+            <fa-icon [icon]="icons.user"></fa-icon>
+        </button>
+        <button class="btn" (click)="criaNovaOperacao(2)">
+            -<fa-icon [icon]="icons.user"></fa-icon>
+        </button>
+    </div>
+</div>
+<app-modal [mostrar]="modalDestinatario.mostrar" #modalDestinatario>
+    <p class="modal-texto">Para quem é o pagamento?</p>
+    <app-select-jogadores
+        [(jogadorAtual)]="jogadorAtualTroca"
+    ></app-select-jogadores>
+    <button class="btn modal-botao" (click)="criaNovaOperacao(3)">
+        Confirmar
+    </button>
+</app-modal>

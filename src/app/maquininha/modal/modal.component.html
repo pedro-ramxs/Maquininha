@@ -1,0 +1,7 @@
+<ng-container *ngIf="mostrar" #container (keydown.escape)="mostrar = false">
+    <div class="modal" @overlay>
+        <div class="modal__conteudo">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</ng-container>

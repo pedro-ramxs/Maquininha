@@ -1,0 +1,56 @@
+$cinza-escuro: #717273;
+
+.maquina {
+    background-color: #e2e2e2;
+    &__visor {
+        background-color: $cinza-escuro;
+        text-align: right;
+        color: #fff;
+        padding: 5px;
+    }
+    &__btn {
+        &-unidades {
+            display: grid;
+            grid-template-columns: repeat(3, (100%/3));
+
+            button {
+                border-radius: 0;
+                color: #fff;
+            }
+        }
+        &-acoes {
+            background-color: $cinza-escuro;
+
+            display: grid;
+            grid-template-columns: repeat(3, (100%/3));
+            button {
+                background: none;
+                color: #fff;
+                padding: 10px;
+            }
+        }
+    }
+    &__teclado {
+        display: grid;
+        grid-template-columns: repeat(3, (100%/3));
+        button {
+            color: $cinza-escuro;
+            padding: 10px;
+        }
+    }
+}
+.modal {
+    &-texto {
+        padding: 16px 0;
+    }
+    &-botao {
+        margin: 16px 0;
+        &-container {
+            margin: 16px;
+            display: grid;
+            grid-template-columns: 45% 45%;
+            column-gap: 10%;
+            padding-bottom: 16px;
+        }
+    }
+}

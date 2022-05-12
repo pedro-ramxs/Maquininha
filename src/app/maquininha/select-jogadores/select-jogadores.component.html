@@ -1,0 +1,14 @@
+<select
+    class="select-jogadores"
+    #select
+    [(ngModel)]="jogadorAtual"
+    (change)="atualizaJogadorAtual()"
+>
+    <option
+        *ngFor="let jogador of jogadores"
+        [value]="jogador.id"
+        class="select-jogadores__option"
+    >
+        {{ jogador.nome }}
+    </option>
+</select>

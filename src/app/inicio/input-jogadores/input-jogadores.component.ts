@@ -10,12 +10,12 @@ export class InputJogadoresComponent {
     @Output() numJogadoresChange = new EventEmitter<number>();
 
     public inc() {
-        if (this.numJogadores < 8) this.numJogadores++;
+        if (this.numJogadores <= 8) this.numJogadores++;
         this.numJogadoresChange.emit(this.numJogadores);
     }
 
     public dec() {
-        if (this.numJogadores > 0) this.numJogadores--;
+        if (this.numJogadores > 2) this.numJogadores--;
         this.numJogadoresChange.emit(this.numJogadores);
     }
 }
